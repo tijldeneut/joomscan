@@ -8,6 +8,7 @@ my $can_regexp=1;
 eval "use Regexp::Common \"URI\"";
 if($@) { $can_regexp=0; }
 
+$ENV{PERL_NET_HTTPS_SSL_SOCKET_CLASS} = 'Net::SSL';
 $ua = LWP::UserAgent->new();
 $ua->protocols_allowed( [ 'http' ] );
 if($target =~ /^https:\/\//) {
